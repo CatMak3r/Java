@@ -6,6 +6,7 @@ public class Employee {
 	private String name;
 	private int age;
 	private double salary;
+	private Status status;
 
 	public Employee() {
 	}
@@ -23,6 +24,13 @@ public class Employee {
 		this.name = name;
 		this.age = age;
 		this.salary = salary;
+	}
+
+	public Employee(String name, int age, double salary, Status status) {
+		this.name = name;
+		this.age = age;
+		this.salary = salary;
+		this.status = status;
 	}
 
 	public Employee(int id, String name, int age, double salary) {
@@ -68,6 +76,14 @@ public class Employee {
 		return "测试方法引用！";
 	}
 
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -106,7 +122,18 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "]";
+		return "Employee{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", age=" + age +
+				", salary=" + salary +
+				", status=" + status +
+				'}';
 	}
 
+	public enum Status{
+		FREE,
+		BUSY,
+		VACATION;
+	}
 }
